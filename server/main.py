@@ -4,7 +4,7 @@ from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
-from worker import create_task
+from worker.main import create_task
 
 
 app = FastAPI()
