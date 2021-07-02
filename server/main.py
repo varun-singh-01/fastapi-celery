@@ -4,17 +4,18 @@ from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
-from worker.main import create_task
+from worker import create_task
 
 
 app = FastAPI()
-app.mount("/static", StaticFiles(directory="static"), name="static")
-templates = Jinja2Templates(directory="templates")
+# app.mount("/static", StaticFiles(directory="static"), name="static")
+# templates = Jinja2Templates(directory="templates")
 
 
 @app.get("/")
 def home(request: Request):
-    return templates.TemplateResponse("home.html", context={"request": request})
+    # return templates.TemplateResponse("home.html", context={"request": request})
+    return {"status": "ok"}
 
 
 @app.post("/tasks", status_code=201)
